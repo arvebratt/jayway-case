@@ -8,7 +8,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     color: #333333;
     background-color: #f1f3f6;
-    overflow: hidden;
   }
 `;
 
