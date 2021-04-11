@@ -10,9 +10,9 @@ export default function Search() {
 
   // Teaching Autosuggest how to calculate suggestions for any given input value.
   function getSuggestions(input) {
-    return Object.values(availeblePokemons).filter((value) =>
-      value.name.startsWith(input.trim().toLowerCase())
-    );
+    return Object.values(availeblePokemons)
+      .filter((value) => !value.selected)
+      .filter((value) => value.name.startsWith(input.trim().toLowerCase()));
   }
 
   function selectInput(input) {

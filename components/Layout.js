@@ -21,10 +21,5 @@ export default function Layout() {
 
 const StyledWrapper = styled.div`
    {
-    position: absolute;
-    min-height: 100vh;
-    width: 100vw;
-    position: relative;
-    background-color: #f1f3f6;
   }
 `;
