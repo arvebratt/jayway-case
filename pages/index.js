@@ -1,20 +1,11 @@
 import DataProvider from "../components/DataProvider";
-import Head from "next/head";
 import axios from "axios";
+import Meta from "../components/Meta";
 
 export default function Home({ pokemons }) {
   return (
     <div>
-      <Head>
-        <title>My styled page</title>
-        <link rel="icon" href="../public/favicon.ico" />
-        <link href="/static/styles.css" rel="stylesheet" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+      <Meta />
       <DataProvider pokemons={pokemons} />
     </div>
   );
