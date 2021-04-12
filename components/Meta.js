@@ -20,6 +20,6 @@ export default function Meta({ title, keywords, description }) {
 
 Meta.defaultProps = {
   title: "Pokemon search engine",
-  keywords: "Pokemon, stats, search",
+  keywords: "Pokemon, search, engine, arvebratt, autocomplete",
   description: "Alexander Arvebratt's case for Jayway",
 };
