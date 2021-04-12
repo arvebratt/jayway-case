@@ -4,7 +4,9 @@ import { PokemonContext } from "./DataProvider";
 
 export default function PokeItem({ url }) {
   const [loaded, setLoaded] = useState();
-  const { availeblePokemons, setUnselected } = useContext(PokemonContext);
+  const { availeblePokemons, setUnselected, setLocalstorage } = useContext(
+    PokemonContext
+  );
 
   useEffect(() => {
     fetch(url)
@@ -19,6 +21,7 @@ export default function PokeItem({ url }) {
     tempID.selected = false;
     availeblePokemons[tempID.id] = tempID;
     setUnselected(availeblePokemons);
+    setLocalstorage(availeblePokemons);
   }
 
   if (loaded === undefined) {

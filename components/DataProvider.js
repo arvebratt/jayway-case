@@ -4,6 +4,7 @@ import Layout from "./Layout";
 const actions = {
   SET_SELECTED: "SET_SELECTED",
   SET_UNSELECTED: "SET_UNSELECTED",
+  SET_LOCALSTORAGE: "SET_LOCALSTORAGE",
 };
 
 function reducer(state, action) {
@@ -12,6 +13,8 @@ function reducer(state, action) {
       return [...action.value];
     case actions.SET_UNSELECTED:
       return [...action.value];
+    case actions.SET_LOCALSTORAGE:
+      window.localStorage.setItem("stored", JSON.stringify(action.value));
     default:
       return state;
   }
@@ -37,6 +40,9 @@ function Provider({ pokemons, children }) {
     },
     setUnselected: (value) => {
       dispatch({ type: actions.SET_UNSELECTED, value });
+    },
+    setLocalstorage: (value) => {
+      dispatch({ type: actions.SET_LOCALSTORAGE, value });
     },
   };
 

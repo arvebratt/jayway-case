@@ -1,10 +1,16 @@
-import { useContext } from "react";
+import { useEffect, useContext } from "react";
 import { PokemonContext } from "./DataProvider";
 import styled from "styled-components";
 import PokemonItem from "./PokemonItem";
 
 export default function Display() {
-  const { availeblePokemons } = useContext(PokemonContext);
+  const { availeblePokemons, setSelected } = useContext(PokemonContext);
+  useEffect(() => {
+    const stickyValue = window.localStorage.getItem("stored");
+    if (stickyValue !== null) {
+      setSelected(JSON.parse(stickyValue));
+    }
+  }, []);
   const filtered = Object.values(availeblePokemons).filter(
     (value) => value.selected === true
   );

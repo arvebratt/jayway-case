@@ -4,7 +4,9 @@ import AutoSuggest from "react-autosuggest";
 import styled from "styled-components";
 
 export default function Search() {
-  const { availeblePokemons, setSelected } = useContext(PokemonContext); //using and modifying global state
+  const { availeblePokemons, setSelected, setLocalstorage } = useContext(
+    PokemonContext
+  ); //using and modifying global state
   const [value, setValue] = useState(""); //state for whats being typed
   const [suggestions, setSuggestion] = useState([]); //state for whats being sugested
 
@@ -20,6 +22,7 @@ export default function Search() {
     tempID.selected = true;
     availeblePokemons[tempID.id] = tempID;
     setSelected(availeblePokemons);
+    setLocalstorage(availeblePokemons);
   }
 
   return (
