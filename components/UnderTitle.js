@@ -6,7 +6,6 @@ export default function UnderTitle() {
 
 const StyledH3 = styled.h3`
    {
-    color: #333333;
     font-weight: 100;
     text-align: center;
   }

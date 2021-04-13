@@ -20,5 +20,4 @@ const StyledContainer = styled.div`
 
 const StyledTitle = styled.h1`
   text-align: center;
-  color: #333333;
 `;

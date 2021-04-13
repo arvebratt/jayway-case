@@ -18,7 +18,11 @@ export default function Display() {
   return (
     <StyledGrid>
       {filtered.map((pokemon) => (
-        <PokemonItem url={pokemon.url} key={pokemon.id} />
+        <PokemonItem
+          url={pokemon.url}
+          timeDate={pokemon.timeDate}
+          key={pokemon.id}
+        />
       ))}
     </StyledGrid>
   );

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState, useEffect, useContext } from "react";
 import { PokemonContext } from "./DataProvider";
 
-export default function PokeItem({ url }) {
+export default function PokeItem({ url, timeDate }) {
   const [loaded, setLoaded] = useState();
   const { availeblePokemons, setUnselected, setLocalstorage } = useContext(
     PokemonContext
@@ -15,11 +15,12 @@ export default function PokeItem({ url }) {
   }, []);
 
   function removeCard() {
-    const tempID = availeblePokemons.find(
+    const selectedPokemon = availeblePokemons.find(
       (value) => value.name === loaded.name
     );
-    tempID.selected = false;
-    availeblePokemons[tempID.id] = tempID;
+    selectedPokemon.selected = false;
+    selectedPokemon.timeDate = null;
+    availeblePokemons[selectedPokemon.id] = selectedPokemon;
     setUnselected(availeblePokemons);
     setLocalstorage(availeblePokemons);
   }
@@ -43,6 +44,7 @@ export default function PokeItem({ url }) {
       <StyledHtWt>
         HT: {loaded.height}0 CM WT: {loaded.weight}00 g
       </StyledHtWt>
+      <StyledTimeDate>Collected {timeDate}</StyledTimeDate>
     </StyledCard>
   );
 }
@@ -84,12 +86,22 @@ const StyledName = styled.h1`
 
 const StyledType = styled.h3`
   text-align: center;
-  margin: 1px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   font-weight: 100;
 `;
 
 const StyledHtWt = styled.p`
   text-align: center;
-  margin: 1px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: 100;
+`;
+
+const StyledTimeDate = styled.p`
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  font-size: 0.8rem;
   font-weight: 100;
 `;

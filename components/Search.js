@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { PokemonContext } from "./DataProvider";
 import AutoSuggest from "react-autosuggest";
 import styled from "styled-components";
+import useTimeDate from "../lib/useTimeDate";
 
 export default function Search() {
   const { availeblePokemons, setSelected, setLocalstorage } = useContext(
@@ -18,9 +19,13 @@ export default function Search() {
   }
 
   function selectInput(input) {
-    const tempID = availeblePokemons.find((value) => value.name === input);
-    tempID.selected = true;
-    availeblePokemons[tempID.id] = tempID;
+    const selectedPokemon = availeblePokemons.find(
+      (value) => value.name === input
+    );
+    selectedPokemon.selected = true;
+    selectedPokemon.timeDate = useTimeDate();
+    availeblePokemons[selectedPokemon.id] = selectedPokemon;
+    console.log(availeblePokemons[selectedPokemon.id]);
     setSelected(availeblePokemons);
     setLocalstorage(availeblePokemons);
   }

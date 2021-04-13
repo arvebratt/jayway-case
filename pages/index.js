@@ -20,6 +20,7 @@ export const getStaticProps = async () => {
       name: item.name,
       url: item.url,
       selected: false,
+      timeDate: null,
     })
   );
 
