@@ -25,6 +25,16 @@ export default function PokeItem({ url, timeDate }) {
     setLocalstorage(availeblePokemons);
   }
 
+  function toKG(value) {
+    value = value.toString();
+    if (value.length === 1) {
+      return "0," + value;
+    }
+    return (
+      value.slice(0, value.length - 1) + "," + value.slice(value.length - 1)
+    );
+  }
+
   if (loaded === undefined) {
     return (
       <StyledCard>
@@ -42,7 +52,7 @@ export default function PokeItem({ url, timeDate }) {
         {loaded.types.map((type) => type.type.name).join(", ")}
       </StyledType>
       <StyledHtWt>
-        HT: {loaded.height}0 CM WT: {loaded.weight}00 g
+        HT: {loaded.height}0 CM WT: {toKG(loaded.weight)} kg
       </StyledHtWt>
       <StyledTimeDate>Collected {timeDate}</StyledTimeDate>
     </StyledCard>
