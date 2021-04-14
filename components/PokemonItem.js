@@ -52,7 +52,7 @@ export default function PokeItem({ url, timeDate }) {
         {loaded.types.map((type) => type.type.name).join(", ")}
       </StyledType>
       <StyledHtWt>
-        HT: {loaded.height}0 CM WT: {toKG(loaded.weight)} kg
+        HT: {loaded.height}0 CM WT: {toKG(loaded.weight)} KG
       </StyledHtWt>
       <StyledTimeDate>Collected {timeDate}</StyledTimeDate>
     </StyledCard>
